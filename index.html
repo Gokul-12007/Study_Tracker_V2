@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11122a">
+  <title>Study Tracker V2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="authView" class="auth-view">
+      <div class="auth-card">
+        <span class="eyebrow">STUDY TRACKER V2</span>
+        <h1>Study with a plan,<br><em>not a panic.</em></h1>
+        <p>Your dashboard, Pomodoro sessions, goals, and progress sync across devices.</p>
+        <form id="authForm">
+          <label>Email<input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+          <label>Password<input id="password" type="password" autocomplete="current-password" required minlength="6" placeholder="At least 6 characters"></label>
+          <button class="primary" type="submit">Sign in</button>
+          <button class="text-button" id="signUp" type="button">New here? Create an account</button>
+        </form>
+        <p id="authMessage" class="message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="appView" class="app-view" hidden>
+      <header class="topbar">
+        <div><span class="eyebrow">STUDY TRACKER V2</span><h1 id="greeting">Good morning</h1></div>
+        <div class="header-actions"><div class="clock"><span id="clockTime">--:--</span><small id="clockDate"></small></div><button id="signOut" class="secondary">Sign out</button></div>
+      </header>
+
+      <section class="stats" aria-label="Study summary">
+        <article><span>Today</span><strong id="todayMinutes">0m</strong><small id="todaySessions">No sessions yet</small></article>
+        <article><span>Weekly focus</span><strong id="weekMinutes">0h</strong><small id="weekGoal">Goal: 0%</small></article>
+        <article><span>Current streak</span><strong id="streak">0 days</strong><small>Keep showing up</small></article>
+        <article><span>Chapter progress</span><strong id="chapterProgress">0%</strong><small id="chapterCounts">0 of 0 complete</small></article>
+      </section>
+
+      <section class="grid">
+        <article class="panel timer-panel">
+          <div class="panel-heading"><div><span class="eyebrow">FOCUS TIMER</span><h2 id="timerMode">Focus</h2></div><button id="settingsButton" class="icon" aria-label="Timer settings">⚙</button></div>
+          <div class="timer"><div><strong id="timerDisplay">25:00</strong><span id="timerHint">Choose a task, then begin.</span></div></div>
+          <label>Study task<select id="chapterSelect"><option value="">General study session</option></select></label>
+          <div class="timer-actions"><button id="startTimer" class="primary">Start focus</button><button id="resetTimer" class="secondary">Reset</button></div>
+        </article>
+
+        <article class="panel chart-panel">
+          <div class="panel-heading"><div><span class="eyebrow">LAST 7 DAYS</span><h2>Focus rhythm</h2></div><span id="weeklyTotal" class="metric">0m</span></div>
+          <div id="weeklyChart" class="bar-chart" aria-label="Weekly study time chart"></div>
+        </article>
+
+        <article class="panel tasks-panel">
+          <div class="panel-heading"><div><span class="eyebrow">UP NEXT</span><h2>Today’s tasks</h2></div><button id="addTodoButton" class="icon" aria-label="Add task">+</button></div>
+          <div id="todoList" class="list empty">Add a task to make today intentional.</div>
+        </article>
+
+        <article class="panel progress-panel">
+          <div class="panel-heading"><div><span class="eyebrow">LEARNING MAP</span><h2>Subjects</h2></div><div style="display:flex;gap:7px"><button id="addSubjectButton" class="icon" aria-label="Add subject">+</button><button id="addExamButton" class="icon" aria-label="Add exam">⌁</button></div></div>
+          <div id="subjectList" class="list empty">Create an exam, then add subjects and chapters.</div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="modal"><form id="modalForm" method="dialog"><div id="modalContent"></div><div class="modal-actions"><button value="cancel" class="secondary">Cancel</button><button id="modalSubmit" value="default" class="primary">Save</button></div></form></dialog>
+  <template id="todoTemplate"><div class="row"><input class="todo-check" type="checkbox"><div class="row-copy"><strong></strong><small></small></div><button class="delete" aria-label="Delete task">×</button></div></template>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
