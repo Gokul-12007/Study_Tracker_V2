@@ -28,6 +28,12 @@
     </section>
 
     <section id="appView" class="app-view" hidden>
+      <aside class="slate-rail" aria-label="Main navigation">
+        <div class="rail-brand">ST</div>
+        <div class="rail-links"><b>Overview</b><span>Plan</span><span>Focus</span><span>Data</span></div>
+        <small>Offline-ready<br>Synced when signed in</small>
+      </aside>
+      <div class="slate-content">
       <header class="topbar">
         <div><span class="eyebrow">STUDY TRACKER V2</span><h1 id="greeting">Good morning</h1></div>
         <div class="header-actions"><div class="clock"><span id="clockTime">--:--</span><small id="clockDate"></small></div><button id="signOut" class="secondary">Sign out</button></div>
@@ -63,6 +69,10 @@
           <div id="subjectList" class="list empty">Create an exam, then add subjects and chapters.</div>
         </article>
       </section>
+      </div>
+      <button id="studyPet" class="study-pet" type="button" aria-label="Ollie, your movable study companion" data-tooltip="Drag me anywhere · click for encouragement">
+        <span id="petMessage">Quiet focus.</span><span class="pet-art" aria-hidden="true">🦦</span><strong>Ollie</strong>
+      </button>
     </section>
   </main>
 
