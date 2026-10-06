@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://drajtkcsgxruigegrijj.supabase.co wss://drajtkcsgxruigegrijj.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
   <meta name="theme-color" content="#11122a">
   <title>Study Tracker V2</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,7 +72,7 @@
         </article>
       </section>
       </div>
-      <button id="studyPet" class="study-pet" type="button" aria-label="Ollie, your movable study companion" data-tooltip="Drag me anywhere · click for encouragement">
+      <button id="studyPet" class="study-pet" type="button" aria-label="Ollie, your movable study companion" title="Drag me anywhere · click to see time left">
         <span id="petMessage">Quiet focus.</span><span class="pet-art" aria-hidden="true">🦦</span><strong>Ollie</strong>
       </button>
     </section>
@@ -79,7 +81,7 @@
   <dialog id="modal"><form id="modalForm" method="dialog"><div id="modalContent"></div><div class="modal-actions"><button value="cancel" class="secondary">Cancel</button><button id="modalSubmit" value="default" class="primary">Save</button></div></form></dialog>
   <template id="todoTemplate"><div class="row"><input class="todo-check" type="checkbox"><div class="row-copy"><strong></strong><small></small></div><button class="delete" aria-label="Delete task">×</button></div></template>
   <script src="config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="vendor/supabase-2.117.2.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
